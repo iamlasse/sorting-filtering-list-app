@@ -1,28 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { createContext, Suspense } from 'react';
+import { ThemeProvider } from "styled-components";
+import { AuthWrapper } from './AuthWrapper';
+import { ErrorBoundary } from './ErrorBoundary';
+import { contextConsumerWrapper, contextProviderWrapper } from "./contextWrapper";
+import { Loader } from "semantic-ui-react";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
-  }
-}
+const FilterableProductTable = React.lazy(() => import('./FilterableProductTable'));
+const initialContext = { foo: 'bar', theme: 'light' }
+const Context = createContext(initialContext)
 
-export default App;
+const FilteredProductsWithContext = contextConsumerWrapper(FilterableProductTable, Context);
+const FilteredProductsWithContextProvider = contextProviderWrapper(FilteredProductsWithContext, Context, initialContext);
+
+const App = () => (
+  <Suspense fallback={<div><Loader size="large" active /></div>}>
+    <AuthWrapper>
+      <ThemeProvider theme={{ mode: 'light' }}>
+        <ErrorBoundary>
+          <FilteredProductsWithContextProvider />
+        </ErrorBoundary>
+      </ThemeProvider>
+    </AuthWrapper>
+  </Suspense>
+)
+export default App
