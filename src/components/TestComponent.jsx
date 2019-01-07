@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React from 'react'
 import styled from 'styled-components';
 import theme from "styled-theming";
-import { Context } from './App'
 
 const Container = styled.div`
   padding: 1.5em
@@ -12,15 +11,12 @@ const Container = styled.div`
     color: #fff
   }
 `
-
-
-
-const Section = ({ header, subheader, children, bgColor, primary }) => {
+export const Section = ({ header, subheader, children, bgColor, primary }) => {
   return (
-    <Container style={{ backgroundColor: primary ? '#443322' : bgColor }}>
+    <Container style={{ backgroundColor: primary ? '#ececec' : bgColor }}>
 
       {typeof header === 'function' ? header(theme) : <h1>{header}</h1>}
-      <h6>{subheader || 'Sub Header'}</h6>
+      <h6>{subheader || null}</h6>
 
       {typeof children === 'function' ? children(theme) : children}
 
@@ -29,7 +25,7 @@ const Section = ({ header, subheader, children, bgColor, primary }) => {
 }
 
 Section.defaultProps = {
-  bgColor: '#ee2244',
+  bgColor: '#f9f9f9',
   primary: false
 }
 

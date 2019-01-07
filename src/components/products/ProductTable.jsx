@@ -1,10 +1,10 @@
 import React, { Fragment } from 'react'
 import TransitionGroup from 'react-transition-group/TransitionGroup';
 import CSSTransition from 'react-transition-group/CSSTransition'
-import './productTable.css'
+import { Table, Label } from "semantic-ui-react";
 import { ProductRow } from './ProductRow';
 import { ProductCategoryRow } from './ProductCategoryRow';
-import { Table, Label } from "semantic-ui-react";
+import './productTable.css'
 
 const ProductTable = ({ categories, showCategoryHeader, products, dispatch }) => {
   const getColor = categoryId => {

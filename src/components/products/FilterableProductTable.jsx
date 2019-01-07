@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useReducer, useRef, useMemo } from 'react';
 import { Table, Container, Modal, Button, Icon } from "semantic-ui-react";
-import { SearchBar } from './SearchBar';
+import { SearchBar } from '../SearchBar';
 import ProductTable from './ProductTable';
-import { inventory } from './data'
+import { inventory } from '../../data'
 import AddProductForm from './AddProductForm';
-import { getFilteredProducts, getTotalPrice, productsReducer } from './helpers';
+import { getFilteredProducts, getTotalPrice, productsReducer } from '../../helpers';
 
 const FilterableProductTable = () => {
   // State, Reducer and Ref hooks
