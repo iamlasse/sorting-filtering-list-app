@@ -55,11 +55,11 @@ export const getFilteredProducts = (products, filterQuery, inStock, showDeleted,
 }
 
 // Calculate total from products
-export const getTotalPrice = inventory => {
+export const getTotalPrice = (inventory, includeDeleted) => {
   let totalPrice = 0
   totalPrice = inventory.reduce((acc, product) => {
     // Don't include products that are deleted (soft)
-    if (product.get('deleted')) return acc
+    if (product.get('deleted') && !includeDeleted) return acc
     return acc += product.get('price')
   }, 0)
 
