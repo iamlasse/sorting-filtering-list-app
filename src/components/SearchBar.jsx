@@ -1,9 +1,7 @@
-
 import React, { Fragment } from 'react';
 import { Input, Checkbox } from "semantic-ui-react";
-export const SearchBar = ({ onSearch, onCheck, onDeleted, filterText, inStockOnly, showDeleted, inputRef }) => {
-  // throw new Error('crashed')
 
+export const SearchBar = ({ onSearch, onCheck, onDeleted, filterText, inStockOnly, showDeleted, inputRef }) => {
   return (<Fragment>
     <Input icon='search' placeholder='Filter...' size='mini' ref={inputRef} value={filterText} onChange={onSearch} />
     <span className="check-box" style={{ paddingLeft: 10, }}>

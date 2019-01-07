@@ -1,11 +1,12 @@
 import React, { createContext, Suspense } from 'react';
 import { ThemeProvider } from "styled-components";
-import { AuthWrapper } from './AuthWrapper';
-import { ErrorBoundary } from './ErrorBoundary';
-import { contextConsumerWrapper, contextProviderWrapper } from "./contextWrapper";
+import { AuthWrapper } from './components/AuthWrapper';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { contextConsumerWrapper, contextProviderWrapper } from "./components/contextWrapper";
 import { Loader } from "semantic-ui-react";
+import Section from './components/TestComponent';
 
-const FilterableProductTable = React.lazy(() => import('./FilterableProductTable'));
+const FilterableProductTable = React.lazy(() => import('./components/products/FilterableProductTable'));
 const initialContext = { foo: 'bar', theme: 'light' }
 const Context = createContext(initialContext)
 
@@ -17,7 +18,9 @@ const App = () => (
     <AuthWrapper>
       <ThemeProvider theme={{ mode: 'light' }}>
         <ErrorBoundary>
-          <FilteredProductsWithContextProvider />
+          <Section header='Product Listing'>
+            <FilteredProductsWithContextProvider />
+          </Section>
         </ErrorBoundary>
       </ThemeProvider>
     </AuthWrapper>
