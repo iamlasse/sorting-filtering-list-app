@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "0e0bb0d1e79ec9a38585",
-    "url": "/sorting-filtering-list-app/static/js/runtime~main.0e0bb0d1.js"
+    "revision": "d3af21b4d7da00f6fb83",
+    "url": "/sorting-filtering-list-app/static/js/runtime~main.d3af21b4.js"
   },
   {
     "revision": "3e5a55f60c89bd3f65b6",
@@ -16,15 +16,15 @@ self.__precacheManifest = [
     "url": "/sorting-filtering-list-app/static/js/2.69366d21.chunk.js"
   },
   {
-    "revision": "a021e3a0eaac22b8de9e",
-    "url": "/sorting-filtering-list-app/static/js/1.a021e3a0.chunk.js"
+    "revision": "5fbf69265db7cd5f83e1",
+    "url": "/sorting-filtering-list-app/static/js/1.5fbf6926.chunk.js"
   },
   {
-    "revision": "a021e3a0eaac22b8de9e",
+    "revision": "5fbf69265db7cd5f83e1",
     "url": "/sorting-filtering-list-app/static/css/1.a18eff08.chunk.css"
   },
   {
-    "revision": "d8eca207105f59a436817b8a6ffbc6c1",
+    "revision": "8375b8a5a6090136fc78858141760375",
     "url": "/sorting-filtering-list-app/index.html"
   }
 ];
