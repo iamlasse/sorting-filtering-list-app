@@ -15,6 +15,7 @@ const FilterableProductTable = () => {
   const [showInstockOnly, setInStock] = useState(false)
   const [showDeleted, setShowDeleted] = useState(false)
   const [openModal, setModalOpen] = useState(false)
+  const [totalPrice, setTotalPrice] = useState(0)
   const [inventoryState, dispatch] = useReducer(productsReducer, inventory)
 
   // state methods
@@ -58,6 +59,11 @@ const FilterableProductTable = () => {
       // inputElement.current.focus();
     }
   }, [])
+
+  useEffect(() => {
+    const price = getTotalPrice(filteredProducts, showDeleted)
+    setTotalPrice(price)
+  }, [totalPrice, filteredProducts.toJS().length])
 
   return (
     <Container style={{ paddingTop: 20, }}>
@@ -105,7 +111,7 @@ const FilterableProductTable = () => {
           <Table.Row textAlign='center'>
             <Table.HeaderCell />
             <Table.HeaderCell>
-              <strong>$ {getTotalPrice(filteredProducts, showDeleted).toFixed(2)}</strong>
+              <strong>$ {totalPrice.toFixed(2)}</strong>
             </Table.HeaderCell>
             <Table.HeaderCell colSpan={2} >
             </Table.HeaderCell>
